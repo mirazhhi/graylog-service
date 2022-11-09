@@ -1,0 +1,1 @@
+docker run -v /Users/mirazhhi/projects/sandbox/one-vision:/app -ti converter_local go ./cmd/build main.go
