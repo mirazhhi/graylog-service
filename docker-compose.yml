@@ -1,7 +1,16 @@
 version: '3'
 services:
   golang:
-    build: '
+    build: .
+    volumes:
+      - /Users/mirazhhi/projects/sandbox/graylog:/app
+    ports:
+    - 1337:8080
+#    restart: always
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    networks:
+      - graylog
   # MongoDB: https://hub.docker.com/_/mongo/
   mongo:
     image: mongo

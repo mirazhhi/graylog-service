@@ -4,9 +4,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN go mod init web
-#RUN go build ./cmd/main.go -o main .
-
-#CMD ["./cmd/main"]
+RUN go mod init graylog
+RUN go mod tidy
+RUN go build ./cmd/main.go
 
 #EXPOSE 8000
