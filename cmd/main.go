@@ -2,13 +2,18 @@ package main
 
 import (
     "fmt"
+    "github.com/gin-gonic/gin"
+    "net/http"
 )
 
 func main() {
-    server := new(web.Server)
-//     log.Fatalf("error")
-//     if err := server.Run("8000"); err !=nil {
-//
-//     }
-    fmt.Println("Hello, World", server)
-}f
+    r := gin.Default()
+    r.GET("/ping", func(c *gin.Context) {
+        c.JSON(http.StatusOK, gin.H{
+          "message": "pong",
+        })
+    })
+    r.Run()
+
+    fmt.Println("Hello")
+}
